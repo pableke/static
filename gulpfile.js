@@ -33,19 +33,25 @@ gulp.task("minify-html", () => {
 // Tasks to minify CSS's
 gulp.task("minify-css", () => {
 	const config = {level: {1: {specialComments: 0}}};
-	return gulp.src(CSS_FILES)
-				.pipe(concat("styles.min.css"))
-				.pipe(cssmin(config))
-				.pipe(gulp.dest("dist/public/css"));
+	gulp.src(CSS_FILES)
+		.pipe(concat("styles.min.css"))
+		.pipe(cssmin(config))
+		.pipe(gulp.dest("dist/public/css"));
+	//re-copy minify files from dist to src directory for tests on src
+	return gulp.src("dist/public/css/styles.min.css")
+				.pipe(gulp.dest("src/public/css"));
 });
 
 // Tasks to minify JS's
 gulp.task("minify-js", () => {
 	const config = {level: {1: {specialComments: 0}}};
-	return gulp.src(JS_FILES)
-				.pipe(concat("static.js"))
-				.pipe(jsmin(config))
-				.pipe(gulp.dest("dist/public/js"));
+	gulp.src(JS_FILES)
+		.pipe(concat("static.js"))
+		.pipe(jsmin(config))
+		.pipe(gulp.dest("dist/public/js"));
+	//re-copy minify files from dist to src directory for tests on src
+	return gulp.src("dist/public/js/static-min.js")
+				.pipe(gulp.dest("src/public/js"));
 });
 
 // Tasks to copy files once
@@ -58,9 +64,6 @@ gulp.task("watch", () => {
 	gulp.watch(HTML_PATH, gulp.series("minify-html"));
 	gulp.watch(CSS_FILES, gulp.series("minify-css"));
 	gulp.watch(JS_FILES, gulp.series("minify-js"));
-	//re-copy minify files from dist to src directory for tests on src
-	gulp.src("dist/public/css/styles.min.css").pipe(gulp.dest("src/public/css"));
-	gulp.src("dist/public/js/static-min.js").pipe(gulp.dest("src/public/js"));
 	// Other watchers ...
 });
 

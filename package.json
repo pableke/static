@@ -1,7 +1,7 @@
 {
   "name": "static",
   "version": "1.0.0",
-  "description": "",
+  "description": "Client-side project for static examples",
   "main": "index.js",
   "scripts": {
     "static": "gulp",
@@ -20,5 +20,13 @@
     "gulp-replace": "^1.0.0",
     "gulp-strip-comments": "^2.5.2",
     "merge-stream": "^2.0.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pableke/static.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pableke/static/issues"
+  },
+  "homepage": "https://github.com/pableke/static#readme"
 }
