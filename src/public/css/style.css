@@ -3,7 +3,7 @@ body {
 	background-color: silver;
 }
 
-.d-none, .hide { display: none; }
+.d-none, .hide { display: none !important; }
 
 /* Extra small devices (portrait phones, less than 576px) */
 @media screen and (max-width: 575.98px) {

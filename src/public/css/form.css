@@ -1,49 +1,40 @@
 
-label { font-weight: bold; display: block; margin: 2px; width: 100%; }
-label.inline { font-weight: normal; display: inline-table; margin-right: 5px; }
+/* Inputs */
+label { display: block; margin: 3px; font-weight: bold; }
 label.required:after { color: #e32; content: " *"; }
-fieldset { padding: 5px; margin-top: 5px; border-radius: 8px; }
-fieldset label { font-weight: normal; display: inline; }
-legend { padding: 4px; margin-left: 5px; font-weight: bold; }
-
+.input-item { padding: 4px; font-size: 1rem; font-weight: 400; line-height: 1.5; border-radius: .25rem; }
+.input-group { margin: 5px; padding: 4px; }
+.input-group label { font-weight: bold; }
+.input-group-block { display: inline-block; width: fit-content; vertical-align: top; }
+.input-group-block > label { display: block; }
+.input-group-flex { display: inline-flex; width: fit-content; align-items: center; }
+.input-group-flex > * { margin: 5px; }
+.input-group-inline { display: grid; grid-gap: 5px; grid-template-columns: fit-content(30%) minmax(70%, 90%); }
+.input-control, .ui-control { background-color: #fff; background-clip: padding-box; }
+.input-control:focus, .ui-control:focus { border: 2px solid #80bdff; outline: 0; }
+.input-control-text, .ui-text { min-width: 350px; width: 100%; max-width: 500px; }
+.input-control-float, .ui-float { width: 110px; text-align: right; }
+.input-control-integer, .ui-integer { width: 110px; text-align: right; }
+.input-control-date, .ui-date { width: 142px; padding: 1px; }
+.input-control-time, .ui-time { padding: 1px; }
+.input-control-select, .ui-select { max-width: 100%; }
+.input-control-ta, .ui-ta { width: 98%; height: 90px; } /*height: 90px = 5 rows aprox.*/
+.input-control-code, .ui-code { width: 120px; }
+.input-control-short, .ui-short { width: 90px; }
+.input-control-bool, .ui-bool { width: 40px; }
+.input-control-min, .ui-min { width: 50px; }
+.input-icon { text-align: center; /*border: 1px solid #ced4da; background-color: #e9ecef;*/ }
+.input-error, .ui-error { border: 2px solid #dc3545; }
+.input-error:focus, .ui-error:focus { border: 2px solid #dc3545; outline: 0; }
+.msg-error, .ui-errtip { color: #dc3545; }
 /* Inputs */
-.input-group {
-	position: relative;
-	display: flex;
-	flex-wrap: wrap;
-	align-items: stretch;
-	width: 100%;
-	margin-bottom: 1rem;
-}
-.input-item {
-	display: inline-block;
-	height: calc(1.5em + .75rem + 2px);
-	padding: .375rem .75rem;
-	font-size: 1rem;
-	font-weight: 400;
-	line-height: 1.5;
-	color: #495057;
-	border-radius: .25rem;
-}
-.input-control { background-color: #fff; background-clip: padding-box; }
-.input-control:focus { border: 2px solid #80bdff; outline: 0; }
-.input-icon { padding: .6rem .75rem; text-align: center; border: 1px solid #ced4da; background-color: #e9ecef; }
-/* Inputs */
 
-/* Clearable text inputs */
-.clearable {
-	background: #fff no-repeat right -20px center;
-	background-image: url("data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgZm9jdXNhYmxlPSJmYWxzZSIgZGF0YS1wcmVmaXg9ImZhcyIgZGF0YS1pY29uPSJ0aW1lcy1jaXJjbGUiIGNsYXNzPSJzdmctaW5saW5lLS1mYSBmYS10aW1lcy1jaXJjbGUgZmEtdy0xNiIgcm9sZT0iaW1nIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSJjdXJyZW50Q29sb3IiIGZpbGwtb3BhY2l0eT0iNDAlIiBkPSJNMjU2IDhDMTE5IDggOCAxMTkgOCAyNTZzMTExIDI0OCAyNDggMjQ4IDI0OC0xMTEgMjQ4LTI0OFMzOTMgOCAyNTYgOHptMTIxLjYgMzEzLjFjNC43IDQuNyA0LjcgMTIuMyAwIDE3TDMzOCAzNzcuNmMtNC43IDQuNy0xMi4zIDQuNy0xNyAwTDI1NiAzMTJsLTY1LjEgNjUuNmMtNC43IDQuNy0xMi4zIDQuNy0xNyAwTDEzNC40IDMzOGMtNC43LTQuNy00LjctMTIuMyAwLTE3bDY1LjYtNjUtNjUuNi02NS4xYy00LjctNC43LTQuNy0xMi4zIDAtMTdsMzkuNi0zOS42YzQuNy00LjcgMTIuMy00LjcgMTcgMGw2NSA2NS43IDY1LjEtNjUuNmM0LjctNC43IDEyLjMtNC43IDE3IDBsMzkuNiAzOS42YzQuNyA0LjcgNC43IDEyLjMgMCAxN0wzMTIgMjU2bDY1LjYgNjUuMXoiPjwvcGF0aD48L3N2Zz4=");
-	background-size: 20px 20px;
-	border: 1px solid #999;
-	padding: 3px 20px 3px 4px; /* Use the same right padding in jQ! */
-	border-radius: 3px;
-	transition: background 0.4s;
+.navbar {
+	margin: 4px;
+	padding: 4px;
+	width: 98%;
+	clear: both;
 }
-.clearable.x { background-position: right 5px center; } /* (jQ) Show icon */
-.clearable.onX { cursor: pointer; } /* (jQ) hover cursor style */
-.clearable::-ms-clear { display: none; width:0; height:0;} /* Remove IE default X */
-/* Clearable text inputs */
 
 /* Buttons */
 .btn {
@@ -93,24 +84,21 @@ legend { padding: 4px; margin-left: 5px; font-weight: bold; }
 /* Buttons */
 
 /* Alerts */
+.alerts { position: relative; }
 .alert {
-	position: relative;
-	display: flex;
-	margin: 1rem;
-	padding: .8rem 1rem;
+	display: grid;
+	grid-gap: 5px;
+	grid-template-columns: 50px auto 10px;
+	margin: 1em;
+	padding: 1em;
+	color: #fff;
 	border: 1px solid transparent;
-	border-radius: .25rem;
+	border-radius: 6px;
 }
-.alert-icon { margin-right: 1rem; max-height: 64px; }
-.alert-text { padding-right: 2rem; width: auto; }
-.alert-close {
-	position: absolute;
-	display: block;
-	top: 0;
-	right: 0;
-	padding: .6rem 1rem;
-	cursor: pointer;
-}
+.alert.active { display: grid; }
+.alert-icon { text-align: center; }
+.alert-text { padding: 2px; }
+.alert-close { font-weight: bold; font-size: x-large; cursor: pointer; }
 .alert-close:hover { color: #000; }
 .alert-primary { color: #004085; background-color: #cce5ff; border-color: #b8daff; }
 .alert-secondary { color: #383d41; background-color: #e2e3e5; border-color: #d6d8db; }
@@ -122,7 +110,25 @@ legend { padding: 4px; margin-left: 5px; font-weight: bold; }
 .alert-dark { color: #1b1e21; background-color: #d6d8d9; border-color: #c6c8ca; }
 /* Alerts */
 
+/* Extra small devices (portrait phones, less than 576px) */
+@media screen and (max-width: 575.98px) {
+	.input-control, .ui-control { min-width: 96%; width: 98%; }
+	.input-group-block, .input-group-flex { display: inline-block; width: 96%; }
+	.input-group-inline { grid-template-columns: auto; }
+	.input-icon { display: none !important; } /*priority over font-awesome*/
+}
+/* Small devices (landscape phones, 576px and up) */
+@media screen and (min-width: 576px) and (max-width: 767.98px) {
+}
+/* Medium devices (tablets, 768px and up) */
+@media screen and (min-width: 768px) and (max-width: 991.98px) {
+	.alerts { position: fixed; top: 6rem; right: 1em; width: 40%; z-index: 9; }
+}
+/* Large devices (desktops, 992px and up) */
+@media screen and (min-width: 992px) and (max-width: 1199.98px) {
+	.alerts { position: fixed; top: 6rem; right: 1em; width: 40%; z-index: 9; }
+}
 /* Extra large devices (large desktops, 1200px and up) */
 @media screen and (min-width: 1200px) {
-	.alert { position: fixed; top: 40px; right: 1em; width: 40%; z-index: 2; }
+	.alerts { position: fixed; top: 6rem; right: 1em; width: 40%; z-index: 9; }
 }
