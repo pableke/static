@@ -98,36 +98,27 @@
 		<br/>
 		<a href="show-first">Fade In Alerts</a> / 
 		<a href="close-first">Fade Out Alerts</a>
+		<br/>
+		<a href="loading">Loading...</a>
 	</div>
 
 	<script type="text/javascript">
-		// Extends dom-box module with animationCSS lib
-		dom.animate = function(node, animation) {
-			// We create a Promise and return it
-			return new Promise((resolve, reject) => {
-				const prefix = "animate__";
-				const animationName = prefix + animation;
-				node.classList.add(prefix + "animated", animationName);
-
-				// When the animation ends, we clean the classes and resolve the Promise
-				function handleAnimationEnd(ev) {
-					node.classList.remove(prefix + "animated", animationName);
-					ev.stopPropagation();
-					resolve(node);
-				}
-
-				node.addEventListener('animationend', handleAnimationEnd, { once: true });
-			});
-		}
-
 		dom.onclick("a[href='show-first']", el => {
-			const alerts = dom.getAll("div.alert");
-			dom.removeClass("hide", alerts[0]).animate(alerts[0], "fadeIn");
+			const alert = dom.get("div.alert");
+			dom.removeClass("hide", alert).animate("fadeIn", alert);
 		});
 		dom.onclick("a[href='close-first']", el => {
-			const alerts = dom.getAll("div.alert");
-			dom.animate(alerts[0], "fadeOut").then(el => dom.addClass("hide", el));
+			const alert = dom.get("div.alert");
+			dom.animate("fadeOut", alert).then(el => dom.addClass("hide", el));
+		});
+
+		dom.onclick("a[href='loading']", el => {
+			dom.loading();
+			setTimeout(dom.working, 500);
 		});
 	</script>
+
+	<div class="loading hide"><b class="fas fa-spinner fa-3x fa-spin loading-content"></b></div>
+	<a id="back-to-top" href="#top" class="hide back-to-top"><i class="fas fa-chevron-up"></i></a>
 </body>
 </html>
