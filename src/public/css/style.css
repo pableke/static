@@ -1,6 +1,6 @@
 
 * { margin: 0; }
-body { font-family: Arial, Helvetica, sans-serif; font-size: 1rem; font-weight: 400; line-height: 1.5; color: #212529; background-color: #ccc; }
+body { font-family: Arial, Helvetica, sans-serif; font-size: 1rem; font-weight: 400; line-height: 1.5; color: #212529; }
 
 /* Cards clases */
 .card { border-left: 6px solid #1976D2; }
@@ -11,6 +11,30 @@ body { font-family: Arial, Helvetica, sans-serif; font-size: 1rem; font-weight: 
 .disabled { opacity: 0.5; pointer-events: none; text-decoration: none; }
 .simple { background-color: transparent; border-color: transparent; text-decoration: none; color: inherit; }
 .simple:hover { text-decoration: none; color: inherit; }
+.logo { font-size: large; padding: 3px; }
+
+/* Table icons/actions */
+.icon {  }
+.icon:hover { text-shadow: 3px 3px 1px silver; }
+.icon-primary { color: blue; }
+.icon-light { color: #818182; }
+.icon-success { color: #28a745; }
+.icon-info { color: #0c5460; }
+.icon-warn { color: #b18708; }
+.icon-error { color: #C24200; }
+.icon-danger { color: #721c24; }
+
+/* text modificators */
+.text-block {
+	margin: 1rem;
+	padding: .7rem;
+	border: 1px solid transparent;
+	border-radius: .25rem;
+}
+.tr { text-align: right; }
+.tl { text-align: left; }
+.tc { text-align: center; }
+.tj { text-align: justify; }
 
 .loading { position: fixed; left: 0px; top: 0px; width: 100%; height: 100%; z-index: 9999; background-color: rgba(255, 255, 255, .8); }
 .loading-content { position: absolute; top: 50%; left: 50%; text-align: center; z-index: 100; }

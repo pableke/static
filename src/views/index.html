@@ -10,8 +10,9 @@
 
 	<!-- CSS Styles -->
 	<link rel="stylesheet" href="public/css/style.css">
-	<link rel="stylesheet" href="public/css/form.css">
 	<link rel="stylesheet" href="public/css/menu.css">
+	<link rel="stylesheet" href="public/css/form.css">
+	<link rel="stylesheet" href="public/css/table.css">
 	<link rel="stylesheet" href="public/css/progressbar.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
@@ -68,6 +69,75 @@
 		<li>Resume</li>
 	</ul>
 
+	<div>
+		<input type="button" name="previous" class="prev-tab action-button" value="Previous" />
+		<a href="#tab-1">go 2</a>
+		<input type="button" name="submit" class="next-tab action-button" value="Submit" />
+		<br/>
+		<a href="show-first">Fade In Alerts</a> / 
+		<a href="close-first">Fade Out Alerts</a>
+		<br/>
+		<a href="loading" class="btn btn-primary">Loading <i class="fas fa-spinner fa-spin"></i></a>
+	</div>
+
+	<script type="text/javascript">
+		dom.onclick("a[href='show-first']", el => {
+			const alert = dom.get("div.alert");
+			dom.removeClass("hide", alert).animate("fadeIn", alert);
+		});
+		dom.onclick("a[href='close-first']", el => {
+			const alert = dom.get("div.alert");
+			dom.animate("fadeOut", alert).then(el => dom.addClass("hide", el));
+		});
+
+		dom.onclick("a[href='loading']", el => {
+			dom.loading();
+			setTimeout(dom.working, 500);
+		});
+
+		// Build all tree menus as UL > Li
+		dom.getAll("ul.menu").forEach(function(menu) {
+			let children = Array.from(menu.children);
+			children.sort((a, b) => (+a.dataset.orden - +b.dataset.orden));
+			children.forEach(child => {
+				menu.appendChild(child); // force reorder
+				let mask = child.dataset.mask; // get mask
+				if ((mask&8) == 8) { // Is parent => add triangle
+					child.innerHTML += '<ul class="sub-menu"></ul>';
+					child.firstElementChild.innerHTML += '<b class="nav-tri">&rtrif;</b>';
+					dom.click((el, ev) => dom.toggle("active", child), child.firstElementChild); //usfull on sidebar
+				}
+				if ((mask&4) == 0) // Disables links
+					dom.addClass("disabled", child.firstElementChild);
+			});
+
+			for (let i = 0; i < menu.children.length; ) {
+				let child = menu.children[i];
+				let padre = child.dataset.padre;
+				if (padre) { // Move child with his parent
+					let li = dom.get("li[id='" + padre + "']", menu);
+					li && li.lastElementChild.appendChild(child);
+				}
+				else
+					i++;
+			}
+			dom.animate("fadeIn", menu);
+		});
+
+		// Show/Hide sidebar
+		dom.load(".sidebar-toggle").click((el, ev) => {
+			dom.toggle("hide", dom.getAll(".sidebar-icon", el.parentNode));
+			dom.toggle("active", dom.get("#sidebar", el.parentNode));
+			ev.preventDefault();
+		});
+
+		// Onclose event tab/browser of client user
+		window.addEventListener("unload", function(ev) {
+			//dom.ajax("/session/destroy.html");
+			alert("closing..");
+		});
+	</script>
+
 	<div class="alerts">
 		<div class="alert alert-success hide">
 			<div class="alert-icon"><i class="fas fa-check-circle fa-3x"></i></div>
@@ -90,34 +160,6 @@
 			<div class="alert-close">&times;</div>
 		</div>
 	</div>
-
-	<div>
-		<input type="button" name="previous" class="prev-tab action-button" value="Previous" />
-		<a href="#tab-1">go 2</a>
-		<input type="button" name="submit" class="next-tab action-button" value="Submit" />
-		<br/>
-		<a href="show-first">Fade In Alerts</a> / 
-		<a href="close-first">Fade Out Alerts</a>
-		<br/>
-		<a href="loading">Loading...</a>
-	</div>
-
-	<script type="text/javascript">
-		dom.onclick("a[href='show-first']", el => {
-			const alert = dom.get("div.alert");
-			dom.removeClass("hide", alert).animate("fadeIn", alert);
-		});
-		dom.onclick("a[href='close-first']", el => {
-			const alert = dom.get("div.alert");
-			dom.animate("fadeOut", alert).then(el => dom.addClass("hide", el));
-		});
-
-		dom.onclick("a[href='loading']", el => {
-			dom.loading();
-			setTimeout(dom.working, 500);
-		});
-	</script>
-
 	<div class="loading hide"><b class="fas fa-spinner fa-3x fa-spin loading-content"></b></div>
 	<a id="back-to-top" href="#top" class="hide back-to-top"><i class="fas fa-chevron-up"></i></a>
 </body>
