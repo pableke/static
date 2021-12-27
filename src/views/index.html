@@ -22,7 +22,7 @@
 	<script type="text/javascript" src="public/js/util-min.js"></script>
 </head>
 <body>
-	<ul class="d-phone">
+	<ul class="menu-phone">
 		<li><a href="#" class="d-phone sidebar-toggle" title="Show/hide left menu"><i class="fas fa-bars nav-icon"></i>Left Menu</a></li>
 	</ul>
 	<ul class="menu hide">
@@ -36,7 +36,7 @@
 		<li id="5" data-padre="2" data-mask="0"><a href="#" title="Sub Nav Link 3">Sub Nav Link 3</a></li>
 		<li id="6" data-padre="2"><a href="#" title="Sub Nav Link 4">Sub Nav Link 4</a></li>
 		<li id="7" data-padre="2"><a href="#" title="Sub Nav Link 5">Sub Nav Link 5</a></li>
-		<li id="8"><a href="#" title="Nav Link 1">Nav Link 3</a></li>
+		<li id="8" data-mask="0"><a href="#" title="Nav Link 1">Nav Link 3</a></li>
 		<li id="11" data-padre="8"><a href="#" title="Sub Nav Link 6">Sub Nav Link 6</a></li>
 		<li id="12"><a href="#" title="Sub Nav Link 7">Sub Nav Link 7</a></li>
 		<li id="9"><a href="#" title="Nav Link 1">Nav Link 4</a></li>
@@ -66,38 +66,6 @@
 	</div>
 
 	<script type="text/javascript">
-		dom.ready(function() {
-			// Build tree menu as UL > Li > *
-			const menu = dom.get("ul.menu"); // Find unique menu
-			const children = Array.from(menu.children); // JS Array
-			children.sort((a, b) => (+a.dataset.orden - +b.dataset.orden));
-			children.forEach(child => {
-				let padre = child.dataset.padre; // Has parent?
-				if (padre) { // Move child with his parent
-					let li = dom.get("li[id='" + padre + "']", menu);
-					if (li) {
-						let children = li.dataset.children || 0;
-						if (!children) {
-							li.innerHTML += '<ul class="sub-menu"></ul>';
-							li.firstElementChild.innerHTML += '<b class="nav-tri">&rtrif;</b>';
-							dom.click(el => !dom.toggle("active", undefined, li), li.firstElementChild); //usfull on sidebar
-						}
-						li.dataset.children = children + 1;
-						li.lastElementChild.appendChild(child);
-					}
-				}
-				else // force reorder lebel 1
-					menu.appendChild(child);
-
-				let mask = child.dataset.mask ?? 4; // default active
-				if ((mask&4) == 0) // Disables links
-					dom.addClass("disabled", child.firstElementChild);
-			});
-			// Show / Hide sidebar and show menu
-			dom.onclick(".sidebar-toggle", el => !dom.toggle("active", undefined, menu))
-				.removeClass("hide", menu);
-		});
-
 		dom.onclick("a[href='show-first']", el => {
 			const alert = dom.get("div.alert");
 			dom.removeClass("hide", alert).animate("fadeIn", alert);
@@ -109,11 +77,6 @@
 
 		dom.onclick("a[href='loading']", el => {
 			setTimeout(dom.loading().working, 500);
-		});
-
-		// Onclose event tab/browser of client user
-		window.addEventListener("unload", ev => {
-			//dom.ajax("/session/destroy.html");
 		});
 	</script>
 

@@ -1,5 +1,6 @@
 
 /* Menu dropdown */
+ul.menu-phone { display: none; }
 ul.menu { position: sticky; display: inline-block; width: 100%; padding: 5px; z-index: 3; background-color: #f8f9fa; }
 /* This hides all dropdowns */
 ul.menu ul { position: absolute; left: 0; display: none; background-color: #f8f9fa; }
@@ -16,8 +17,8 @@ ul.menu li:hover > ul { display: block; border-left: 2px solid #2c3e50; z-index:
 ul.menu ul ul { top: 1%; left: 99%; }
 /* All nav-links elements: inherit from li (a same state as it's li) */
 ul.menu a { display: block; padding: .5rem .8rem; white-space: nowrap; text-decoration: none; color: #000; }
-ul.menu .nav-icon { display: inline-block; margin-right: 8px; }
 ul.menu .nav-tri { display: inline-block; margin-left: 9px; }
+.nav-icon { display: inline-block; margin-right: 8px; }
 /* Menu dropdown */
 
 /* Breadcrumb pagination */
@@ -32,17 +33,17 @@ ul.breadcrumb li a:hover { color: #01447e; text-decoration: underline; }
 .tags { overflow: hidden; list-style: none; }
 .tags li { float: left; }
 .tag {
-	background: #eee;
-	border-radius: 3px 0 0 3px;
-	color: #999;
-	display: inline-block;
-	height: 26px;
-	line-height: 26px;
-	padding: 0 20px 0 23px;
-	position: relative;
-	margin: 0 10px 10px 0;
-	text-decoration: none;
-	-webkit-transition: color 0.2s;
+  background: #eee;
+  border-radius: 3px 0 0 3px;
+  color: #999;
+  display: inline-block;
+  height: 26px;
+  line-height: 26px;
+  padding: 0 20px 0 23px;
+  position: relative;
+  margin: 0 10px 10px 0;
+  text-decoration: none;
+  -webkit-transition: color 0.2s;
 }
 
 .tag::before {
@@ -72,6 +73,9 @@ ul.breadcrumb li a:hover { color: #01447e; text-decoration: underline; }
 
 /* Extra small devices (portrait phones, less than 576px) */
 @media screen and (max-width: 575.98px) {
+  ul.menu-phone { display: inline-block; width: 100%; padding: 5px; background-color: #f8f9fa; }
+  ul.menu-phone a { display: block; padding: .5rem .8rem; white-space: nowrap; text-decoration: none; color: #000; }
+
 	ul.menu {
 		position: fixed;
 		top: 0;
