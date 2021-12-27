@@ -33,17 +33,17 @@ ul.breadcrumb li a:hover { color: #01447e; text-decoration: underline; }
 .tags { overflow: hidden; list-style: none; }
 .tags li { float: left; }
 .tag {
-  background: #eee;
-  border-radius: 3px 0 0 3px;
-  color: #999;
-  display: inline-block;
-  height: 26px;
-  line-height: 26px;
-  padding: 0 20px 0 23px;
-  position: relative;
-  margin: 0 10px 10px 0;
-  text-decoration: none;
-  -webkit-transition: color 0.2s;
+	background: #eee;
+	border-radius: 3px 0 0 3px;
+	color: #999;
+	display: inline-block;
+	height: 26px;
+	line-height: 26px;
+	padding: 0 20px 0 23px;
+	position: relative;
+	margin: 0 10px 10px 0;
+	text-decoration: none;
+	-webkit-transition: color 0.2s;
 }
 
 .tag::before {
@@ -73,8 +73,8 @@ ul.breadcrumb li a:hover { color: #01447e; text-decoration: underline; }
 
 /* Extra small devices (portrait phones, less than 576px) */
 @media screen and (max-width: 575.98px) {
-  ul.menu-phone { display: inline-block; width: 100%; padding: 5px; background-color: #f8f9fa; }
-  ul.menu-phone a { display: block; padding: .5rem .8rem; white-space: nowrap; text-decoration: none; color: #000; }
+	ul.menu-phone { display: inline-block; width: 100%; padding: 5px; background-color: #f8f9fa; }
+	ul.menu-phone a { display: block; padding: .5rem .8rem; white-space: nowrap; text-decoration: none; color: #000; }
 
 	ul.menu {
 		position: fixed;
