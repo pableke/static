@@ -107,7 +107,7 @@ ul.breadcrumb li a:hover { color: #01447e; text-decoration: underline; }
 	ul.menu li.active > ul { display: block; }
 	/* Displays second level dropdowns to the right of the first level dropdown */
 	ul.menu ul ul { top: 0; left: 0; }
-	ul.menu .nav-tri { float: right; }
+	ul.menu .nav-tri { float: right; font-size: larger; }
 }
 /* Small devices (landscape phones, 576px and up) */
 @media screen and (min-width: 576px) and (max-width: 767.98px) {
