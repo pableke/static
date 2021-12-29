@@ -37,7 +37,7 @@ ul.tags li {
 	padding: 2px 8px 2px 18px;
 	cursor: pointer;
 	background: #eee;
-	clip-path: polygon(18% 0%, 100% 0%, 100% 100%, 18% 100%, 0 50%);
+	clip-path: polygon(12% 0%, 100% 0%, 100% 100%, 12% 100%, 0 50%);
 }
 ul.tags li:hover { background-color: crimson; color: white; }
 /* Tags */
@@ -47,7 +47,7 @@ ul.tags li:hover { background-color: crimson; color: white; }
 	ul.menu-phone { display: inline-block; width: 100%; padding: 5px; background-color: #f8f9fa; }
 	ul.menu-phone a { display: block; padding: .5rem .8rem; white-space: nowrap; text-decoration: none; color: #000; }
 
-	ul.menu {
+	ul.menu { /* Left sidebar menu */
 		position: fixed;
 		top: 0;
 		left: -238px; /* width + padding-left + padding-right*/
